@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Hello World</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        #app {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #4FC08D;
+            text-align: center;
+        }
+        p {
+            color: #666;
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #4FC08D;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 0 auto;
+        }
+        button:hover {
+            background-color: #3a9474;
+        }
+        .vue-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="vue-logo">
+            <div style="font-size: 48px; color: #4FC08D;">⚡ Vue.js</div>
+        </div>
+        <h1 id="message">Hello World from Vue.js!</h1>
+        <p id="description">This is a simple Vue.js-style Hello World application.</p>
+        <button onclick="updateMessage()">Click me!</button>
+    </div>
+
+    <script>
+        // Simple Vue.js-style reactive component simulation
+        const AppData = {
+            message: 'Hello World from Vue.js!',
+            description: 'This is a simple Vue.js-style Hello World application.',
+            clickCount: 0
+        };
+
+        function updateMessage() {
+            AppData.clickCount++;
+            AppData.message = `Hello World - Button Clicked ${AppData.clickCount} time${AppData.clickCount > 1 ? 's' : ''}!`;
+            AppData.description = 'You successfully interacted with the Vue.js-style app!';
+            
+            // Update DOM elements
+            document.getElementById('message').textContent = AppData.message;
+            document.getElementById('description').textContent = AppData.description;
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Vue.js-style Hello World App initialized');
+            document.getElementById('message').textContent = AppData.message;
+            document.getElementById('description').textContent = AppData.description;
+        });
+    </script>
+</body>
+</html>
